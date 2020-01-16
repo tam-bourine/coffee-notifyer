@@ -1,0 +1,32 @@
+service:
+  name: notify-coffee
+# app and org for use with dashboard.serverless.com
+app: notify-coffee
+org: shuta13
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  apiGateway:
+    minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+  region: ap-northeast-1
+
+functions:
+  main:
+    handler: handler.main
+    # events:
+    #   - http:
+    #       method: get
+    #       path: main
