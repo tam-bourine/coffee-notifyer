@@ -5,6 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "dev": "sls offline start",
+    "lint": "eslint \"*.ts\"",
+    "prettier": "prettier --write \"*.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -16,7 +18,13 @@
     "@types/aws-lambda": "^8.10.17",
     "@types/node": "^10.12.18",
     "@types/request": "^2.48.4",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "fork-ts-checker-webpack-plugin": "^3.0.1",
+    "prettier": "^1.19.1",
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.2.0",
     "ts-loader": "^5.3.3",
