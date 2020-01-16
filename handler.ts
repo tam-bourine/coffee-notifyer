@@ -9,7 +9,7 @@ interface SlackReqOpts {
   headers: { [key: string]: string };
 }
 
-export const main = (event, _context, _callback) => {
+export const dev = (event, _context, _callback) => {
   const webhook_url = process.env.SLACK_WEBHOOK_URL; // eslint-disable-line
   const slack_req_opts = (url.parse(webhook_url) as any) as SlackReqOpts; // eslint-disable-line
   slack_req_opts.method = "POST"; // eslint-disable-line
