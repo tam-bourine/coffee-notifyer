@@ -19,9 +19,4 @@ jobs:
     - stage: lint
       script: yarn lint
     - stage: deploy
-      env:
-        - AWS_REGION=ap-northeast-1
-        - SLS_DEBUG=true
-        - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
-        - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       script: sls deploy
