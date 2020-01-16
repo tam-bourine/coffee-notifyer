@@ -1,5 +1,4 @@
 name: deploy to AWS lambda by sls
-
 on:
   push:
     branches: master
