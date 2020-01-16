@@ -14,6 +14,11 @@ install:
   - yarn global add serverless
   - yarn
 
+env:
+  jobs:
+    - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+
 jobs:
   include:
     - stage: lint
