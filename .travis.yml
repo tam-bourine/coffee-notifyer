@@ -14,5 +14,9 @@ install:
   - yarn global add serverless
   - yarn
 
-script:
-  - yarn lint
+jobs:
+  include:
+    - stage: lint
+      script: yarn lint
+    - stage: deploy
+      script: sls deploy
