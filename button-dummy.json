@@ -1,0 +1,30 @@
+{
+  "deviceInfo": {
+    "deviceId": "xxx",
+    "type": "button",
+    "remainingLife": 99.3,
+    "attributes": {
+      "projectRegion": "ap-northeast-1",
+      "projectName": "coffee-notifyer",
+      "placementName": "osaka-1f",
+      "deviceTemplateName": "coffee_button"
+    }
+  },
+  "deviceEvent": {
+    "buttonClicked": {
+      "clickType": "SINGLE",
+      "reportedTime": "2018-07-13T08:09:59.237Z"
+    }
+  },
+  "placementInfo": {
+    "projectName": "coffee-notifyer",
+    "placementName": "osaka-1f",
+    "attributes": {
+      "key1": "test",
+      "key2": "hoge"
+    },
+    "devices": {
+      "coffee_button": "G030PM036261LB71"
+    }
+  }
+}
