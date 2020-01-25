@@ -4,8 +4,10 @@ import * as https from "https";
 import * as url from "url";
 
 export const handle = (event, _context) => {
+  console.log({ event });
   // get AWSIoT1Click event
   const { deviceEvent, placementInfo } = event as any;
+  console.log({ deviceEvent, placementInfo });
   const clickType = deviceEvent.buttonClicked.clickType;
   let text = "";
   switch (clickType) {
@@ -27,13 +29,14 @@ export const handle = (event, _context) => {
   if (!event.path) {
     return (status = "not found requested place");
   }
-  const place = event.path;
-  console.log({ place });
+  // const path = event.path as string;
+  const path = event.pathParameters.place as string;
+  console.log({ path });
   let webhookUrl = "";
 
-  if ("osaka" === place) {
+  if ("osaka" === path) {
     webhookUrl = process.env.SLACK_WEBHOOK_OSAKA;
-  } else if ("tokyo" === place) {
+  } else if ("tokyo" === path) {
     webhookUrl = process.env.SLACK_WEBHOOK_TOKYO;
   } else {
     webhookUrl = process.env.SLACK_WEBHOOK_DEV;

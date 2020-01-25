@@ -10,3 +10,9 @@ jspm_packages
 
 .env
 .envrc
+
+# vscode
+.vscode/
+
+# yarn
+yarn-error.log

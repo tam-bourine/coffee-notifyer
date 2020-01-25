@@ -9,9 +9,7 @@
     "prettier": "prettier --write \"*.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "sls deploy --aws-profile",
-    "osaka": "sls invoke -f notifyOsaka -p button-dummy.json --log --aws-profile",
-    "tokyo": "sls invoke -f notifyTokyo -p button-dummy.json --log --aws-profile",
-    "dev": "sls invoke -f notifyDev -p button-dummy.json --log --aws-profile"
+    "invoke": "sls invoke -f notify -p ./button-dummy.json --log --aws-profile"
   },
   "dependencies": {
     "dotenv": "^8.2.0",

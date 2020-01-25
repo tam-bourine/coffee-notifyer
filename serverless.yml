@@ -24,34 +24,41 @@ provider:
   region: ap-northeast-1
 
 functions:
-  notifyOsaka:
+  notify:
     handler: notify.handle
     events:
       - http:
-          path: /osaka
+          path: /{place}
           method: post
-          private: true
           response:
             headers:
               Content-Type: "'application/json'"
-  notifyTokyo:
-    handler: notify.handle
-    events:
-      - http:
-          path: /tokyo
-          method: post
-          private: true
-          response:
-            headers:
-              Content-Type: "'application/json'"
-  notifyDev:
-    handler: notify.handle
-    events:
-      - http:
-          path: /dev
-          method: post
-          private: true
-          response:
-            headers:
-              Content-Type: "'application/json'"
+  # notifyOsaka:
+  #   handler: notify.handle
+  #   events:
+  #     - http:
+  #         path: osaka
+  #         method: post
+  #         response:
+  #           headers:
+  #             Content-Type: "'application/json'"
+  # notifyTokyo:
+  #   handler: notify.handle
+  #   events:
+  #     - http:
+  #         path: tokyo
+  #         method: post
+  #         private: true
+  #         response:
+  #           headers:
+  #             Content-Type: "'application/json'"
+  # notifyDev:
+  #   handler: notify.handle
+  #   events:
+  #     - http:
+  #         path: dev
+  #         method: post
+  #         response:
+  #           headers:
+  #             Content-Type: "'application/json'"
 
