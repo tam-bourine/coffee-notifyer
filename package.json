@@ -12,6 +12,7 @@
     "invoke": "sls invoke -f notify -p ./button-dummy.json --log --aws-profile"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "request": "^2.88.0",
     "serverless": "^1.61.2",
