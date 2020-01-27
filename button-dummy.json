@@ -23,7 +23,7 @@
       "single": "コーヒー淹れたよ",
       "double": "売り切れました",
       "long": "おやつもあるよ",
-      "icon_emoji": ":coffee:"
+      "icon_emoji": ":hot-coffee:"
     },
     "devices": {
       "coffee_button": "fugafuga"
