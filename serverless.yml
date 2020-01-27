@@ -13,6 +13,7 @@ custom:
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
@@ -24,41 +25,35 @@ provider:
   region: ap-northeast-1
 
 functions:
-  notify:
+  sendOsaka:
     handler: notify.handle
+    environment:
+      WEBHOOK_URL: ${env:WEBHOOK_OSAKA}
     events:
       - http:
-          path: /{place}
           method: post
           response:
             headers:
               Content-Type: "'application/json'"
-  # notifyOsaka:
-  #   handler: notify.handle
-  #   events:
-  #     - http:
-  #         path: osaka
-  #         method: post
-  #         response:
-  #           headers:
-  #             Content-Type: "'application/json'"
-  # notifyTokyo:
-  #   handler: notify.handle
-  #   events:
-  #     - http:
-  #         path: tokyo
-  #         method: post
-  #         private: true
-  #         response:
-  #           headers:
-  #             Content-Type: "'application/json'"
-  # notifyDev:
-  #   handler: notify.handle
-  #   events:
-  #     - http:
-  #         path: dev
-  #         method: post
-  #         response:
-  #           headers:
-  #             Content-Type: "'application/json'"
+  sendTokyo:
+    handler: notify.handle
+    environment:
+      WEBHOOK_URL: ${env:WEBHOOK_TOKYO}
+    events:
+      - http:
+          method: post
+          private: true
+          response:
+            headers:
+              Content-Type: "'application/json'"
+  sendDev:
+    handler: notify.handle
+    environment:
+      WEBHOOK_URL: ${env:WEBHOOK_DEV}
+    events:
+      - http:
+          method: post
+          response:
+            headers:
+              Content-Type: "'application/json'"
 
