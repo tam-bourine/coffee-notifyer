@@ -2,7 +2,7 @@ service:
   name: notify-coffee
 # app and org for use with dashboard.serverless.com
 app: notify-coffee
-org: shuta13
+org: nasat75
 
 custom:
   webpack:
@@ -13,6 +13,7 @@ custom:
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
@@ -24,9 +25,38 @@ provider:
   region: ap-northeast-1
 
 functions:
-  dev:
-    handler: handler.dev
-  # osaka:
-  #   handler: handler.osaka
-  # tokyo:
-  #   handler: handler.tokyo
+  sendOsaka:
+    handler: notify.handle
+    environment:
+      WEBHOOK_URL: ${env:WEBHOOK_OSAKA}
+    events:
+      - http:
+          path: /osaka
+          method: post
+          response:
+            headers:
+              Content-Type: "'application/json'"
+  sendTokyo:
+    handler: notify.handle
+    environment:
+      WEBHOOK_URL: ${env:WEBHOOK_TOKYO}
+    events:
+      - http:
+          path: /tokyo
+          method: post
+          private: true
+          response:
+            headers:
+              Content-Type: "'application/json'"
+  sendDev:
+    handler: notify.handle
+    environment:
+      WEBHOOK_URL: ${env:WEBHOOK_DEV}
+    events:
+      - http:
+          path: /tokyo
+          method: post
+          response:
+            headers:
+              Content-Type: "'application/json'"
+

@@ -1,0 +1,32 @@
+{
+  "deviceInfo": {
+    "deviceId": "hogehoge",
+    "type": "button",
+    "remainingLife": 99.3,
+    "attributes": {
+      "projectRegion": "ap-northeast-1",
+      "projectName": "coffee-notifyer",
+      "placementName": "osaka-1f",
+      "deviceTemplateName": "coffee_button"
+    }
+  },
+  "deviceEvent": {
+    "buttonClicked": {
+      "clickType": "SINGLE",
+      "reportedTime": "2020-01-25T08:09:59.237Z"
+    }
+  },
+  "placementInfo": {
+    "projectName": "coffee-notifyer",
+    "placementName": "osaka-1f",
+    "attributes": {
+      "single": "コーヒー淹れたよ",
+      "double": "売り切れました",
+      "long": "おやつもあるよ",
+      "icon_emoji": ":hot-coffee:"
+    },
+    "devices": {
+      "coffee_button": "fugafuga"
+    }
+  }
+}

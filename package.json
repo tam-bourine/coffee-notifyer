@@ -7,11 +7,18 @@
     "dev": "sls offline start",
     "lint": "eslint \"*.ts\"",
     "prettier": "prettier --write \"*.ts\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sls deploy --aws-profile",
+    "invokeOsaka": "sls invoke -f sendOsaka -p ./button-dummy.json --log --aws-profile",
+    "invokeTokyo": "sls invoke -f sendTokyo -p ./button-dummy.json --log --aws-profile",
+    "invokeDev": "sls invoke -f sendDev -p ./button-dummy.json --log --aws-profile",
+    "invokeDevLocal": "sls invoke local -f sendDev -p ./button-dummy.json --log --aws-profile"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "request": "^2.88.0",
+    "serverless": "^1.61.2",
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {
@@ -25,6 +32,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "fork-ts-checker-webpack-plugin": "^3.0.1",
     "prettier": "^1.19.1",
+    "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.2.0",
     "ts-loader": "^5.3.3",
