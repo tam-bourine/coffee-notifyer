@@ -1,13 +1,15 @@
 {
   "name": "notify-coffee",
   "version": "1.0.0",
+  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "description": "Serverless webpack example using Typescript",
   "main": "handler.js",
+  "license": "MIT",
   "scripts": {
     "dev": "sls offline start",
     "lint": "eslint \"*.ts\"",
     "prettier": "prettier --write \"*.ts\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "deploy": "sls deploy --aws-profile",
     "invokeOsaka": "sls invoke -f sendOsaka -p ./button-dummy-osaka.json --log --aws-profile",
     "invokeTokyo": "sls invoke -f sendTokyo -p ./button-dummy-tokyo.json --log --aws-profile",
@@ -44,6 +46,21 @@
     "webpack": "^4.29.0",
     "webpack-node-externals": "^1.7.2"
   },
-  "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
-  "license": "MIT"
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/test/*.test.ts"
+    ]
+  }
 }
