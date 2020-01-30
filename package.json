@@ -9,10 +9,10 @@
     "prettier": "prettier --write \"*.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "sls deploy --aws-profile",
-    "invokeOsaka": "sls invoke -f sendOsaka -p ./button-dummy.json --log --aws-profile",
-    "invokeTokyo": "sls invoke -f sendTokyo -p ./button-dummy.json --log --aws-profile",
-    "invokeDev": "sls invoke -f sendDev -p ./button-dummy.json --log --aws-profile",
-    "invokeDevLocal": "sls invoke local -f sendDev -p ./button-dummy.json --log --aws-profile"
+    "invokeOsaka": "sls invoke -f sendOsaka -p ./button-dummy-osaka.json --log --aws-profile",
+    "invokeTokyo": "sls invoke -f sendTokyo -p ./button-dummy-tokyo.json --log --aws-profile",
+    "invokeDev": "sls invoke -f sendDev -p ./button-dummy-osaka.json --log --aws-profile",
+    "invokeDevLocal": "sls invoke local -f sendDev -p ./button-dummy-osaka.json --log --aws-profile"
   },
   "dependencies": {
     "axios": "^0.19.2",
