@@ -1,6 +1,6 @@
 require("dotenv").config();
 import "source-map-support/register";
-const axios = require("axios");
+import axios from "axios";
 
 export const handle = (event, _context) => {
   // get AWSIoT1Click event
@@ -28,7 +28,7 @@ export const handle = (event, _context) => {
     axios.post(webhookUrl, {
       text: text,
       username: placementInfo.placementName,
-      icon_emoji: placementInfo.attributes.icon_emoji
+      icon_emoji: placementInfo.attributes.icon_emoji // eslint-disable-line
     });
     return {
       statusCode: 200,
