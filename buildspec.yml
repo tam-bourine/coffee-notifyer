@@ -5,9 +5,9 @@ phases:
     commands:
       - yarn global add serverless
       - yarn   
-  test:
+  pre_build:
     commands:
       - yarn test
-  deploy:
+  post_build:
     commands:
       - sls deploy
