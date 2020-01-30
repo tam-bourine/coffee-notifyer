@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/camelcase */
 require("dotenv").config();
 import "source-map-support/register";
 import axios from "axios";

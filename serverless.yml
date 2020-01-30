@@ -44,7 +44,6 @@ functions:
       - http:
           path: /tokyo
           method: post
-          private: true
           response:
             headers:
               Content-Type: "'application/json'"
