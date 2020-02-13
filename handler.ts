@@ -1,14 +1,35 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/camelcase */
+
 require("dotenv").config();
 import "source-map-support/register";
 import axios from "axios";
 
-export const dev = (event, _context) => {
-  const webhook_url = process.env.SLACK_WEBHOOK_URL; // eslint-disable-line
+// ----------
+// types
+export type GetAWSIoT1ClickEventParams = {
+  deviceEvent: {
+    buttonClicked: {
+      clickType: string;
+    };
+  };
+  placementInfo: {
+    attributes: {
+      single: string;
+      double: string;
+      long: string;
+    };
+  };
+};
+// ----------
 
-  // get AWSIoT1Click event
-  const { deviceEvent, placementInfo } = event as any;
+// get AWSIoT1Click event
+export const getAWSIoT1ClickEvent = ({
+  deviceEvent,
+  placementInfo
+}: GetAWSIoT1ClickEventParams) => {
   const clickType = deviceEvent.buttonClicked.clickType;
-  let text = null;
+  let text = "";
   switch (clickType) {
     case "SINGLE":
       text = placementInfo.attributes.single;
@@ -20,9 +41,17 @@ export const dev = (event, _context) => {
       text = placementInfo.attributes.long;
       break;
   }
-  if (text == null) return;
+  return text;
+};
 
-  // send message to slack
+export const slackSendMessage = (event, _context) => {
+  const webhook_url = process.env.SLACK_WEBHOOK_URL;
+  const { deviceEvent, placementInfo } = event;
+
+  // get AWSIoT1Click event
+  const text = getAWSIoT1ClickEvent({ deviceEvent, placementInfo });
+
+  // send message
   try {
     axios.post(webhook_url, {
       text: text,
