@@ -12,5 +12,4 @@ phases:
       - yarn test
   post_build:
     commands:
-      - sls config credentials -p aws -k AWS_KEY -s AWS_SECRET_KEY
       - sls deploy
