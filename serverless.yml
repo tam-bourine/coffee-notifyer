@@ -2,7 +2,7 @@ service:
   name: notify-coffee
 # app and org for use with dashboard.serverless.com
 app: notify-coffee
-org: nasat75
+# org: nasat75
 
 custom:
   webpack:
