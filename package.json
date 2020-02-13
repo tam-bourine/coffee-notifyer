@@ -14,7 +14,8 @@
     "invokeOsaka": "sls invoke -f sendOsaka -p ./button-dummy-osaka.json --log --aws-profile",
     "invokeTokyo": "sls invoke -f sendTokyo -p ./button-dummy-tokyo.json --log --aws-profile",
     "invokeDev": "sls invoke -f sendDev -p ./button-dummy-osaka.json --log --aws-profile",
-    "invokeDevLocal": "sls invoke local -f sendDev -p ./button-dummy-osaka.json --log --aws-profile"
+    "invokeDevLocal": "sls invoke local -f sendDev -p ./button-dummy-osaka.json --log --aws-profile",
+    "initTravis": "chmod 777 env_travis.sh && ./env_travis.sh"
   },
   "dependencies": {
     "axios": "^0.19.2",
