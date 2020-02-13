@@ -10,6 +10,6 @@ phases:
   pre_build:
     commands:
       - yarn test
-  post_build:
+  ex_build:
     commands:
       - sls deploy
