@@ -7,7 +7,7 @@ import axios from "axios";
 
 // ----------
 // types
-export type GetAWSIoT1ClickEventParams = {
+type GetAWSIoT1ClickEventParams = {
   deviceEvent: {
     buttonClicked: {
       clickType: string;
@@ -44,19 +44,17 @@ export const getAWSIoT1ClickEvent = ({
   return text;
 };
 
-export const slackSendMessage = (event, _context) => {
+export const sendMessage = (event, _context) => {
   const webhook_url = process.env.SLACK_WEBHOOK_URL;
   const { deviceEvent, placementInfo } = event;
 
   // get AWSIoT1Click event
   const text = getAWSIoT1ClickEvent({ deviceEvent, placementInfo });
-
-  // send message
   try {
     axios.post(webhook_url, {
       text: text,
       username: placementInfo.placementName,
-      icon_emoji: placementInfo.attributes.icon_emoji // eslint-disable-line
+      icon_emoji: placementInfo.attributes.icon_emoji
     });
     return {
       statusCode: 200,

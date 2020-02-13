@@ -26,7 +26,7 @@ provider:
 
 functions:
   sendOsaka:
-    handler: notify.handle
+    handler: handler.sendMessage
     environment:
       WEBHOOK_URL: ${env:WEBHOOK_OSAKA}
     events:
@@ -37,7 +37,7 @@ functions:
             headers:
               Content-Type: "'application/json'"
   sendTokyo:
-    handler: notify.handle
+    handler: handler.sendMessage
     environment:
       WEBHOOK_URL: ${env:WEBHOOK_TOKYO}
     events:
@@ -48,7 +48,7 @@ functions:
             headers:
               Content-Type: "'application/json'"
   sendDev:
-    handler: notify.handle
+    handler: handler.sendMessage
     environment:
       WEBHOOK_URL: ${env:WEBHOOK_DEV}
     events:
