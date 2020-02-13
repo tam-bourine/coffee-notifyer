@@ -45,7 +45,7 @@ export const getAWSIoT1ClickEvent = ({
 };
 
 export const sendMessage = (event, _context) => {
-  const webhook_url = process.env.SLACK_WEBHOOK_URL;
+  const webhook_url = process.env.WEBHOOK_DEV;
   const { deviceEvent, placementInfo } = event;
 
   // get AWSIoT1Click event
