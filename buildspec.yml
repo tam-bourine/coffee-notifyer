@@ -12,4 +12,5 @@ phases:
       - yarn test
   post_build:
     commands:
+      - sls login
       - sls deploy
