@@ -4,9 +4,14 @@ import "source-map-support/register";
 import * as https from "https";
 import * as url from "url";
 
+type SlackReqOpts = {
+  method: string;
+  headers: { [key: string]: string };
+};
+
 export const dev = (event, _context) => {
   const webhook_url = process.env.SLACK_WEBHOOK_URL; // eslint-disable-line
-  const slack_req_opts = url.parse(webhook_url) as any; // eslint-disable-line
+  const slack_req_opts = (url.parse(webhook_url) as any) as SlackReqOpts; // eslint-disable-line
   slack_req_opts.method = "POST"; // eslint-disable-line
   slack_req_opts.headers = { "Content-type": "application/json" }; // eslint-disable-line
 
