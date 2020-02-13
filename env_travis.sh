@@ -1,6 +1,9 @@
+# install travis
 sudo gem install travis
+# read lines of .env file
 ENV_LINES=`cat .env | wc -l`
 COUNT=0
+# read .env and encrypt
 while [ $COUNT -ne $ENV_LINES ]
 do
   COUNT=`expr $COUNT + 1`
