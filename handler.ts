@@ -5,8 +5,8 @@ import * as https from "https";
 import * as url from "url";
 
 type SlackReqOpts = {
-  method?: string;
-  headers?: { [key: string]: string };
+  method: string;
+  headers: { [key: string]: string | undefined };
 };
 
 export const dev = (event, _context) => {
